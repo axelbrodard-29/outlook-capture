@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Capture d'e-mail</title>
+  <link rel="stylesheet" href="taskpane.css">
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <script src="lib/purify.min.js"></script>
+  <script src="lib/html2canvas.min.js"></script>
+  <script src="lib/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <main>
+    <h1>Capture d'e-mail</h1>
+
+    <section id="step-loading" class="step">
+      <div class="spinner" aria-hidden="true"></div>
+      <p id="loading-text">Préparation de la capture…</p>
+    </section>
+
+    <section id="step-choose" class="step" hidden>
+      <figure class="preview">
+        <img id="preview" alt="Aperçu de la capture">
+      </figure>
+      <h2>Sous quel format voulez-vous la capture ?</h2>
+      <div class="formats">
+        <button class="fmt" data-format="png">
+          <strong>PNG</strong><span>Image nette, sans perte</span>
+        </button>
+        <button class="fmt" data-format="jpeg">
+          <strong>JPEG</strong><span>Image plus légère</span>
+        </button>
+        <button class="fmt" data-format="pdf">
+          <strong>PDF</strong><span>Document A4, plusieurs pages si besoin</span>
+        </button>
+        <button class="fmt" data-format="clipboard">
+          <strong>Presse-papiers</strong><span>À coller dans Teams, Word…</span>
+        </button>
+      </div>
+      <button id="recapture" class="link">Refaire la capture</button>
+    </section>
+
+    <p id="status" role="status" hidden></p>
+
+    <section id="fallback" hidden>
+      <p>Si le téléchargement ne démarre pas : faites un <strong>clic droit sur l'aperçu</strong> puis « Enregistrer l'image sous… », ou utilisez le presse-papiers.</p>
+    </section>
+  </main>
+
+  <!-- Zone de rendu invisible : l'e-mail y est affiché à largeur fixe puis photographié -->
+  <iframe id="render-frame" sandbox="allow-same-origin" title="rendu" aria-hidden="true" tabindex="-1"></iframe>
+
+  <script src="taskpane.js"></script>
+</body>
+</html>

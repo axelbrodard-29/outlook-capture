@@ -1,0 +1,65 @@
+:root {
+  --accent: #0f6cbd;
+  --accent-hover: #115ea3;
+  --text: #242424;
+  --muted: #616161;
+  --border: #d1d1d1;
+  --bg: #ffffff;
+  --bg-soft: #f5f5f5;
+  --ok: #107c10;
+  --err: #c50f1f;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", -apple-system, system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg);
+}
+main { padding: 16px; }
+h1 { font-size: 18px; font-weight: 600; margin: 0 0 12px; }
+h2 { font-size: 14px; font-weight: 600; margin: 16px 0 8px; }
+
+.step[hidden], [hidden] { display: none !important; }
+
+#step-loading { display: flex; flex-direction: column; align-items: center; padding: 32px 0; color: var(--muted); }
+.spinner {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 3px solid var(--bg-soft); border-top-color: var(--accent);
+  animation: spin 0.8s linear infinite; margin-bottom: 12px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.preview {
+  margin: 0; border: 1px solid var(--border); border-radius: 6px;
+  background: var(--bg-soft); max-height: 260px; overflow: auto;
+}
+.preview img { display: block; width: 100%; height: auto; }
+
+.formats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.fmt {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
+  padding: 10px 12px; border: 1px solid var(--border); border-radius: 6px;
+  background: var(--bg); cursor: pointer; text-align: left; font: inherit; color: inherit;
+}
+.fmt strong { color: var(--accent); font-size: 14px; }
+.fmt span { font-size: 12px; color: var(--muted); }
+.fmt:hover, .fmt:focus-visible { border-color: var(--accent); background: #ebf3fc; outline: none; }
+.fmt:disabled { opacity: 0.5; cursor: wait; }
+
+.link {
+  margin-top: 12px; padding: 0; border: 0; background: none;
+  color: var(--accent); font: inherit; cursor: pointer; text-decoration: underline;
+}
+
+#status { margin: 12px 0 0; padding: 8px 10px; border-radius: 6px; background: var(--bg-soft); font-size: 13px; }
+#status.ok { color: var(--ok); background: #f1faf1; }
+#status.err { color: var(--err); background: #fdf3f4; }
+
+#fallback { margin-top: 8px; font-size: 12px; color: var(--muted); }
+
+#render-frame {
+  position: fixed; left: -10000px; top: 0;
+  width: 820px; height: 100px; border: 0; background: #fff;
+}
