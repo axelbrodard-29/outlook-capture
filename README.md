@@ -5,7 +5,7 @@ Ajoute un bouton **« Capturer l'e-mail »** dans le ruban d'un e-mail ouvert da
 ## 1. Mettre en ligne sur GitHub Pages (environ 5 min)
 
 1. Sur github.com, créez un dépôt **public** nommé `outlook-capture`.
-2. Cliquez sur **Add file → Upload files** et déposez **tout le contenu de ce dossier** : `manifest.xml`, `taskpane.html`, les dossiers `lib` et `assets`, etc.
+2. Cliquez sur **Add file → Upload files** et déposez **tout le contenu de ce dossier** : `manifest.xml`, `taskpane.html`, `taskpane.js`, `taskpane.css`, `commands.html` et le dossier `assets`.
 3. Allez dans **Settings → Pages**. Choisissez *Deploy from a branch*, puis la branche `main` et le dossier `/ (root)`, et enregistrez.
 4. Une minute plus tard, le site est disponible à l'adresse `https://VOTRE-COMPTE.github.io/outlook-capture/`.
 
@@ -46,7 +46,7 @@ Les fichiers sont nommés automatiquement : `Objet de l'e-mail_AAAA-MM-JJ`.
 | Fichier | Rôle |
 |---|---|
 | `manifest.xml` | Déclare le bouton et les adresses (fichier à installer dans Outlook) |
-| `taskpane.html/.css/.js` | Panneau de l'extension : lecture de l'e-mail, rendu, choix du format |
+| `taskpane.html/.css` | Panneau de l'extension |
+| `taskpane.js` | Code du complément + bibliothèques intégrées (html2canvas, jsPDF, DOMPurify) |
 | `commands.html` | Fichier technique exigé par Outlook |
-| `lib/` | html2canvas (rendu en image), jsPDF (PDF), DOMPurify (nettoyage du HTML) |
 | `assets/` | Icônes |
